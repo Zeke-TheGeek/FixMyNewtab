@@ -1,7 +1,7 @@
 {
   "name": "Fix My Newtab",
   "description": "A simple extension I MADE which forces the new tab page back to a proper one, and also includes various other utilities to help me work more efficiently.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "manifest_version": 3,
   "action": {
     "default_popup": "extmenu.html",

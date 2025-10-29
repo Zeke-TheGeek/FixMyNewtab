@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>New Tab</title>
+		<link rel="icon" href="../assets/favicon.ico">
+		<script src="../assets/jquery-3.7.1.min.js"></script>
+		<script src="appmenu.js"></script>
+		<style>
+			
+			*{
+				border:0px solid red;
+				margin:0px;
+				padding:0px;
+				letter-spacing:0.4pt;
+				font-family: "Roboto", sans-serif;
+				  font-optical-sizing: auto;
+				  font-weight: 300;
+				  font-style: normal;
+				  font-variation-settings:
+				    "wdth" 100;
+			}
+			html{
+				background-color:#050505;
+				height:100%;
+				background-image:url(../assets/jghostbackground.jpg);
+				background-repeat:no-repeat;
+				background-size:cover;
+				background-position-x:center;
+				overflow-x:hidden;
+			}
+			#googleNav{
+				display: flex;
+				flex-flow:row wrap;
+				justify-content:flex-end;
+				padding:10px;
+				background-image:linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0));
+			}
+			.googleNavLink{
+				margin-left:15px;
+				align-self:center;
+				text-decoration:none;
+				color:white;
+				font-size:10.5pt;
+				user-select:none;
+			}
+			.googleNavLink:hover{
+				text-decoration:underline;
+			}
+			.googleNavItem{
+				margin-left:15px;
+				width:30px;
+				height:30px;
+				background-repeat:no-repeat;
+				background-position:center;
+				border-radius:25px;
+				border:5px solid rgba(255,255,255,0);
+				transition:background-color 0.05s;
+			}
+			.googleNavItem:hover{
+				border:5px solid rgba(0,0,0,0);
+				background-color:rgba(255,255,255,0.1);
+			}
+			.googleNavItem:active{
+				border:5px solid rgba(0,0,0,0);
+				background-color:rgba(255,255,255,0.2);
+			}
+			#googleApps{
+				background-image:url(../assets/al-icon.png);
+			}
+			.googleAccount{
+				background-image:url(https://lh3.googleusercontent.com/ogw/AF2bZyhP3dxgRWlP0i_Jw8YW8_1Gpu_zgwu8Ldm-JqTEJzZr_i0=s128-c-mo);
+				background-size:cover;
+			}
+			#googleLogo{
+				background-image:url(../assets/google_logo.svg);
+				background-repeat:no-repeat;
+				background-position-y:center;
+				width:272px;
+				height:168px;
+				margin:15px auto;
+				margin-top:132px;
+			}
+			form{
+				display:flex;
+				flex-flow:row wrap;
+				justify-content:center;
+				margin-bottom:15px;
+			}
+			form input{
+				padding:15px;
+				border-radius:25px;
+				padding-left:21px;
+				font-weight:normal;
+				font-size:12pt;
+				box-shadow: 0px 4px 9px -2px rgba(0,0,0,0.2);
+			}
+			form a{
+				align-self:center;
+				margin-left:-42px;
+				margin-right:21px;
+			}
+			#googleImage{
+				width:23px;
+				height:23px;
+				background-image:url(camera.svg);
+				background-size:cover;
+			}
+			#googleShortcuts{
+				display:flex;
+				flex-flow:row wrap;
+				justify-content:center;
+			}
+			.googleShortcut{
+				width:112px;
+				height:112px;
+				text-align:center;
+				color:#FFF;
+				text-decoration:none;
+				font-size:10pt;
+				text-shadow:0px 1px 4px rgba(0,0,0,0.8);
+				transition:background-color 0.05s;
+			}
+			.googleShortcut:hover{
+				background-color:rgba(255,255,255,0.15);
+				border-radius:5px;
+			}
+			.googleShortcutImg{
+				width:48px;
+				height:48px;
+				margin:16px auto;
+				background-color:#244424;
+				border-radius:24px;
+				background-repeat:no-repeat;
+				background-position:center;
+				background-size:26px;
+			}
+			/*Images for the google icons*/
+			.a{
+				background-image:url("../assets/canvas.png");
+			}
+			.b{
+				background-image:url("../assets/chromewebstore.png");
+			}
+			.c{
+				background-image:url("../assets/classroom.png");
+			}
+			.d{
+				background-image:url("../assets/d2l.svg");
+			}
+			.e{
+				background-image:url("../assets/docs.ico");
+			}
+			.f{
+				background-image:url("../assets/cvs.ico");
+			}
+			.g{
+				background-image:url("../assets/drive.svg");
+			}
+			.h{
+				background-image:url("../assets/calendar.svg");
+			}
+			.i{
+				background-image:url("../assets/docs.svg");
+			}
+			.j{
+				background-image:url("../assets/sheets.svg");
+			}
+			.k{
+				background-image:url("../assets/slides.svg");
+			}
+			.l{
+				background-image:url("../assets/gmail.svg");
+			}
+			.m{
+				background-image:url("../assets/meet.svg");
+			}
+			.n{
+				background-image:url("../assets/forms.svg");
+			}
+			.o{
+				background-image:url("../assets/sites.svg");
+			}
+			.p{
+				background-image:url("../assets/contacts.png");
+			}
+			.q{
+				background-image:url("../assets/classroom2.png");
+			}
+			.r{
+				background-image:url("../assets/earth.png");
+			}
+			.s{
+				background-image:url("../assets/maps.png");
+			}
+			.t{
+				background-image:url("../assets/translate.png");
+			}
+			.u{
+				background-image:url("../assets/youtube.png");
+			}
+			.v{
+				background-image:url("../assets/video.svg");
+			}
+			.w{
+				background-image:url("../assets/tasks.png");
+			}
+			
+			#googleAppList{
+				width:360px;
+				height:460px;
+				position:absolute;
+				top:55px;
+				right:-1px;
+				display:flex;
+				flex-flow: row wrap;
+				justify-content:space-evenly;
+				border:1px outset rgba(255,255,255,0.5);
+				border-radius:10px;
+				overflow-y:auto;
+				background-color:rgba(0,0,0,0.1);
+				box-shadow:4px 4px 8px 0px rgba(0,0,0,0.1);
+				scrollbar-width:thin;
+				scrollbar-color:rgba(230,255,255,0.8) rgba(0,0,0,0);
+				opacity:0;
+			}
+			.googleApp{
+				width:85px;
+				height:90px;
+				margin:5px;
+				margin-top:15px;
+				border-radius:10px;
+				backdrop-filter:blur(4px);
+				background-color:rgba(255,255,255,0.3);
+				border:1px outset rgba(255,255,255,0.5);
+				box-shadow:0px 2px 5px 0px rgba(0,0,0,0.1);
+				text-align:center;
+				padding-top:0%;
+				font-weight:normal;
+				transition:transform 0.15s, color 0.15s, box-shadow 0.15s;
+				text-decoration:none;
+				color:black;
+				text-shadow:0px 0px 4px rgba(255,255,255,0.5);
+				font-size:11pt;
+			}
+			.googleApp:hover{
+				transform:scale(1.05, 1.05);
+				box-shadow:0px 2px 8px 0px rgba(255,255,255,0.3);
+				background-color:rgba(255,255,255,0.6);
+			}
+			.googleApp:active{
+				background-color:rgba(255,255,255,0.75);
+				box-shadow:0px 2px 8px 0px rgba(255,255,255,0.4);
+			}
+			.googleApp div{
+				height:46px;
+				width:46px;
+				background-size:contain;
+				background-position:center;
+				background-repeat:no-repeat;
+				margin:12px auto;
+				border-radius:3px;
+			}
+			.spacer{
+				width:316px;
+				height:10px;
+				margin:5px 0px;
+				margin-top:15px;
+				background-color:rgba(255,255,255,0.3);
+				border-radius:10px;
+				border:1px outset rgba(255,255,255,0.5);
+				backdrop-filter:blur(1px);
+				box-shadow:0px 2px 5px 0px rgba(0,0,0,0.05);
+			}
+		</style>
+    </head>
+    <body>
+		<header id=googleNav>
+			<a draggable=false title="Gmail" class=googleNavLink href="https://mail.google.com/mail">Gmail</a>
+			<a draggable=false title="Calendar" class=googleNavLink href="https://calendar.google.com/calendar">Calendar</a>
+			<div title="Apps" class=googleNavItem id=googleApps></div>
+			<a draggable=false title="My Account" class="googleNavItem googleAccount" href="https://myaccount.google.com"></a>
+		</header>
+		<div id=googleLogo></div>
+		<div id=googleSearch>
+			<form method="get" action="https://www.google.com/search">
+				<input type="text" name="q" size="73" value="" autocomplete="off" placeholder="Search Google or type a URL">
+				<a href="https://images.google.com"><div id=googleImage></div></a>
+			</form>
+		</div>
+		<div id=googleShortcuts>
+			<a draggable=false title="Canvas" class=googleShortcut href="https://canvas.google.com">
+				<div class="googleShortcutImg a"></div>
+				<h4>Canvas</h4>
+			</a>
+			<a draggable=false title="Chrome Store" class=googleShortcut href="https://chrome.google.com/webstore">
+				<div class="googleShortcutImg b"></div>
+				<h4>Chrome Store</h4>
+			</a>
+			<a draggable=false title="Classroom" class=googleShortcut href="https://classroom.google.com">
+				<div class="googleShortcutImg c"></div>
+				<h4>Classroom</h4>
+			</a>
+			<a draggable=false title="D2L Brightspace" class=googleShortcut href="https://durham.elearningontario.ca/d2l/home">
+				<div class="googleShortcutImg d"></div>
+				<h4>D2L Brightsp...</h4>
+			</a>
+			<a draggable=false title="Google Docs" class=googleShortcut href="https://docs.google.com">
+				<div class="googleShortcutImg e"></div>
+				<h4>Google Docs</h4>
+			</a>
+			<a draggable=false title="CVS Online" class=googleShortcut href="https://christianvirtualschool.desire2learn.com/">
+				<div class="googleShortcutImg f"></div>
+				<h4>CVS Online</h4>
+			</a>
+			<a draggable=false title="Google Drive" class=googleShortcut href="https://drive.google.com">
+				<div class="googleShortcutImg g"></div>
+				<h4>Google Drive</h4>
+			</a>
+		</div>
+		<div id=googleAppList>
+			<a draggable=false title="My Account" href="https://myaccount.google.com" class=googleApp><div class=googleAccount></div>Account</a>
+			<a draggable=false title="Gmail" href="https://mail.google.com" class=googleApp><div class=l></div>Gmail</a>
+			<a draggable=false title="Google Drive" href="https://drive.google.com" class=googleApp><div class=g></div>Drive</a>
+			<a draggable=false title="Google Classroom" href="https://classroom.google.com" class=googleApp><div class=q></div>Classroom</a>
+			<a draggable=false title="Google Docs" href="https://docs.google.com" class=googleApp><div class=i></div>Docs</a>
+			<a draggable=false title="Google Sheets" href="https://docs.google.com/spreadsheets" class=googleApp><div class=j></div>Sheets</a>
+			<a draggable=false title="Google Slides" href="https://docs.google.com/presentation" class=googleApp><div class=k></div>Slides</a>
+			<a draggable=false title="Google Calendar" href="https://calendar.google.com/calendar" class=googleApp><div class=h></div>Calendar</a>
+			<a draggable=false title="Google Meet" href="https://meet.google.com" class=googleApp><div class=m></div>Meet</a>
+			<a draggable=false title="Google Forms" href="https://docs.google.com/forms" class=googleApp><div class=n></div>Forms</a>
+			<a draggable=false title="Google Sites" href="https://sites.google.com" class=googleApp><div class=o></div>Sites</a>
+			<a draggable=false title="Contacts" href="https://contacts.google.com" class=googleApp><div class=p></div>Contacts</a>
+			<div class=spacer></div>
+			<a draggable=false title="Google Earth" href="https://earth.google.com" class=googleApp><div class=r></div>Earth</a>
+			<a draggable=false title="Google Maps" href="https://maps.google.com" class=googleApp><div class=s></div>Maps</a>
+			<a draggable=false title="Google Translate" href="https://translate.google.com" class=googleApp><div class=t></div>Translate</a>
+			<a draggable=false title="Youtube" href="https://www.youtube.com/" class=googleApp><div class=u></div>Youtube</a>
+			<a draggable=false title="Google Videos" href="https://docs.google.com/videos" class=googleApp><div class=v></div>Videos</a>
+			<a draggable=false title="Google Tasks" href="https://tasks.google.com" class=googleApp><div class=w></div>Tasks</a>
+		</div>
+    </body>
+</html>

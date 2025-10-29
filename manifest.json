@@ -24,7 +24,9 @@
   "48": "exticon48.png",
   "128": "exticon128.png"
   },
-
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "js": ["replacetab.js"],
